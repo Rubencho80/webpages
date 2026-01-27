@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crepería Essencia</title>
+    <link rel="icon" href="images/logo2.jpg">
+    <meta name="description" content="Crepería, cafetería y bar de copas en Sant Andreu de la Barca. Gofres brutales, creps de muerte y espectáculos los fines de semana.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-cream: #FFF8F0;
+            --color-terracota: #D4745C;
+            --color-beige: #E8DCC4;
+            --color-dorado: #D4AF37;
+            --color-borgona: #6B2737;
+            --color-dark: #2C1810;
+            --color-text: #3D2817;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(212, 116, 92, 0.9), rgba(107, 39, 55, 0.85)),
+                        url('images/interior2.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '🥞';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.1;
+            top: -50px;
+            right: 10%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '🧇';
+            position: absolute;
+            font-size: 180px;
+            opacity: 0.1;
+            bottom: -40px;
+            left: 5%;
+            animation: float 5s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 4px 8px rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero-horario {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            display: inline-block;
+            margin-bottom: 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-horario p {
+            font-size: 1.1rem;
+            margin: 0.3rem 0;
+        }
+
+        .hero-horario strong {
+            color: var(--color-dorado);
+            font-size: 1.3rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: var(--color-dorado);
+            color: var(--color-dark);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--color-borgona);
+            transform: translateY(-3px);
+        }
+
+        /* DECORATIVE DIVIDER */
+        .divider {
+            text-align: center;
+            padding: 3rem 0;
+            position: relative;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 30%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--color-terracota), transparent);
+        }
+
+        .divider::before { left: 0; }
+        .divider::after { right: 0; }
+
+        .divider-icon {
+            font-size: 2.5rem;
+            display: inline-block;
+            animation: spin 20s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 5rem 2rem;
+            position: relative;
+        }
+
+        .section-bg-cream {
+            background: var(--color-cream);
+        }
+
+        .section-bg-beige {
+            background: var(--color-beige);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--color-borgona);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 3px;
+            background: var(--color-dorado);
+        }
+
+        .section-description {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--color-text);
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* CARTA SECTION */
+        .carta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .carta-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .carta-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-terracota), var(--color-dorado), var(--color-borgona));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .carta-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .carta-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .carta-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            position: relative;
+        }
+
+        .carta-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--color-dorado);
+            color: var(--color-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .carta-content {
+            padding: 2rem;
+        }
+
+        .carta-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .carta-title {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--color-borgona);
+            margin-bottom: 0.5rem;
+        }
+
+        .carta-description {
+            color: var(--color-text);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .carta-highlight {
+            background: var(--color-beige);
+            padding: 1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--color-borgona);
+            border-left: 4px solid var(--color-terracota);
+        }
+
+        /* DOS AMBIENTES SECTION */
+        .ambientes-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            min-height: 600px;
+        }
+
+        .ambiente {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            transition: all 0.5s ease;
+            overflow: hidden;
+        }
+
+        .ambiente::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            transition: opacity 0.5s ease;
+        }
+
+        .ambiente:hover::before {
+            opacity: 0.25;
+        }
+
+        .ambiente-dia {
+            background: linear-gradient(135deg, #FFF8F0, #FFE8CC);
+            color: var(--color-text);
+        }
+
+        .ambiente-dia::before {
+            background-image: url('images/interior1.jpg');
+        }
+
+        .ambiente-noche {
+            background: linear-gradient(135deg, #2C1810, #6B2737);
+            color: white;
+        }
+
+        .ambiente-noche::before {
+            background-image: url('images/interior5.jpg');
+        }
+
+        .ambiente-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ambiente-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ambiente-horario {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1.5rem;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50px;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ambiente-features {
+            list-style: none;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ambiente-features li {
+            font-size: 1.1rem;
+            margin: 1rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .ambiente-features li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        /* GALERIA */
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .galeria-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            height: 300px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.4s ease;
+        }
+
+        .galeria-item:hover {
+            transform: scale(1.05);
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .galeria-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .galeria-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 2rem 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .galeria-item:hover .galeria-overlay {
+            transform: translateY(0);
+        }
+
+        .galeria-overlay h3 {
+            color: white;
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+        }
+
+        /* DESTACADO TRONO */
+        .galeria-item.destacado {
+            grid-column: span 2;
+            height: 400px;
+        }
+
+        .galeria-item.destacado::after {
+            content: '👑';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* TEMPORADA */
+        .temporada-box {
+            background: linear-gradient(135deg, var(--color-borgona), var(--color-terracota));
+            color: white;
+            padding: 4rem 3rem;
+            border-radius: 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .temporada-box::before {
+            content: '🎭';
+            position: absolute;
+            font-size: 300px;
+            opacity: 0.1;
+            top: -50px;
+            right: -50px;
+        }
+
+        .temporada-box h2 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .temporada-box p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .temporada-items {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .temporada-item {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid rgba(255,255,255,0.3);
+            min-width: 250px;
+        }
+
+        .temporada-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* RESEÑAS */
+        .reseñas-carousel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .reseña-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .reseña-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .reseña-card::before {
+            content: '"';
+            font-size: 6rem;
+            font-family: var(--font-display);
+            color: var(--color-beige);
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            line-height: 1;
+        }
+
+        .reseña-stars {
+            color: var(--color-dorado);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .reseña-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--color-text);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .reseña-author {
+            font-weight: 600;
+            color: var(--color-borgona);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--color-dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-dorado);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            margin: 0.5rem 0;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--color-dark);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 52px;
+            height: 52px;
+            background: var(--color-borgona);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--color-dorado);
+            transform: translateY(-5px);
+        }
+
+        .map-container {
+            width: 100%;
+            height: 350px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* BADGE */
+        .quality-badge {
+            background: var(--color-dorado);
+            color: var(--color-dark);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-top: 1rem;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .ambientes-container {
+                grid-template-columns: 1fr;
+            }
+
+            .galeria-item.destacado {
+                grid-column: span 1;
+                height: 300px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* SMOOTH SCROLL */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ANIMACIONES DE ENTRADA */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Crepería Essencia</h1>
+            <p class="hero-subtitle">Crepería • Cafetería • Bar de Copas</p>
+            
+            <div class="hero-horario">
+                <p><strong>🕐 Todos los días:</strong> 17h - 21h</p>
+                <p><strong>🍸 Viernes y Sábados:</strong> Copeo hasta las 2h</p>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="CartaEssencia.pdf" target="_blank" class="btn btn-primary">Ver Carta</a>
+                <a href="#ubicacion" class="btn btn-secondary">Encuéntranos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="divider">
+        <span class="divider-icon">🍓</span>
+    </div>
+
+    <!-- CARTA SECTION -->
+    <section id="carta" class="section-bg-cream">
+        <div class="container">
+            <h2 class="section-title">Nuestra Carta</h2>
+            <p class="section-description">
+                Creaciones artesanales que te van a conquistar. De los creps más dulces a los sabores más atrevidos.
+            </p>
+
+            <div class="carta-grid">
+                <!-- GOFRES -->
+                <div class="carta-item">
+                    <div style="position: relative;">
+                        <img src="images/comida17.jpg" alt="Gofres Brutales" class="carta-image">
+                        <span class="carta-badge">⭐ DE MUERTE</span>
+                    </div>
+                    <div class="carta-content">
+                        <span class="carta-icon">🧇</span>
+                        <h3 class="carta-title">Gofres Brutales</h3>
+                        <p class="carta-description">
+                            Gofres recién hechos con toppings que flipas. Crujientes por fuera, esponjosos por dentro.
+                        </p>
+                        <div class="carta-highlight">
+                            <strong>🔥 Destacados:</strong> Gofre de Lotus • Gofre de Kinder
+                        </div>
+                    </div>
+                </div>
+
+                <!-- creps DULCES -->
+                <div class="carta-item">
+                    <div style="position: relative;">
+                        <img src="images/comida7.jpg" alt="creps Dulces" class="carta-image">
+                    </div>
+                    <div class="carta-content">
+                        <span class="carta-icon">🥞</span>
+                        <h3 class="carta-title">Creps Dulces</h3>
+                        <p class="carta-description">
+                            Finos, ligeros y con todos los toppings que te puedas imaginar. Chocolate, nata, frutas...
+                        </p>
+                        <div class="carta-highlight">
+                            <strong>🍫 Variedad infinita</strong> de sabores y combinaciones
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BATIDOS Y BEBIDAS -->
+                <div class="carta-item">
+                    <div style="position: relative;">
+                        <img src="images/comida16.jpg" alt="Batidos y Bebidas" class="carta-image">
+                    </div>
+                    <div class="carta-content">
+                        <span class="carta-icon">🍹</span>
+                        <h3 class="carta-title">Batidos & Bebidas</h3>
+                        <p class="carta-description">
+                            Batidos riquísimos, cafés de especialidad, cócteles para la noche y mucho más.
+                        </p>
+                        <div class="carta-highlight">
+                            <strong>☕ De día:</strong> Cafés • Batidos • Infusiones<br>
+                            <strong>🍸 De noche:</strong> Cócteles • Vinos • Cervezas
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <span class="quality-badge">🏆 Calidad-Precio Inmejorable</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="divider">
+        <span class="divider-icon">☕</span>
+    </div>
+
+    <!-- DOS AMBIENTES SECTION -->
+    <section id="ambientes" class="section-bg-beige">
+        <div class="container">
+            <h2 class="section-title">Dos Ambientes, Una Esencia</h2>
+            <p class="section-description">
+                El mismo lugar se transforma según la hora. Elige tu momento favorito.
+            </p>
+
+            <div class="ambientes-container">
+                <!-- DIA -->
+                <div class="ambiente ambiente-dia">
+                    <span class="ambiente-icon">☀️</span>
+                    <h3 class="ambiente-title">De Día</h3>
+                    <p class="ambiente-horario">17h - 21h • Todos los días</p>
+                    <ul class="ambiente-features">
+                        <li>Ambiente acogedor y familiar</li>
+                        <li>Perfecto para meriendas</li>
+                        <li>creps y gofres artesanales</li>
+                        <li>Cafés de especialidad</li>
+                        <li>Decoración preciosa</li>
+                    </ul>
+                </div>
+
+                <!-- NOCHE -->
+                <div class="ambiente ambiente-noche">
+                    <span class="ambiente-icon">🌙</span>
+                    <h3 class="ambiente-title">De Noche</h3>
+                    <p class="ambiente-horario">Viernes y Sábados • Hasta las 2h</p>
+                    <ul class="ambiente-features">
+                        <li>Bar de copas con ambiente</li>
+                        <li>Espectáculos en vivo</li>
+                        <li>Cócteles de autor</li>
+                        <li>Música y buen rollo</li>
+                        <li>Noches inolvidables</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section id="galeria" class="section-bg-cream">
+        <div class="container">
+            <h2 class="section-title">Nuestro Espacio</h2>
+            <p class="section-description">
+                Un lugar único con encanto. Cada rincón cuenta una historia.
+            </p>
+
+            <div class="galeria-grid">
+                <div class="galeria-item destacado">
+                    <img src="images/interior2.jpg" alt="Asientos en forma de trono">
+                    <div class="galeria-overlay">
+                        <h3>Ambiente Acogedor</h3>
+                    </div>
+                </div>
+                <div class="galeria-item">
+                    <img src="images/interior6.jpg" alt="Interior acogedor">
+                    <div class="galeria-overlay">
+                        <h3>Los Famosos Tronos</h3>
+                    </div>
+                </div>
+                <div class="galeria-item">
+                    <img src="images/exterior3.jpg" alt="Detalles decorativos">
+                    <div class="galeria-overlay">
+                        <h3>Detalles con Encanto</h3>
+                    </div>
+                </div>
+                <div class="galeria-item">
+                    <img src="images/interior3.jpg" alt="creps presentados">
+                    <div class="galeria-overlay">
+                        <h3>Presentación Perfecta</h3>
+                    </div>
+                </div>
+                <div class="galeria-item">
+                    <img src="images/interior1.jpg" alt="Decoración única">
+                    <div class="galeria-overlay">
+                        <h3>Decoración Única</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEMPORADA -->
+    <section class="section-bg-beige">
+        <div class="container">
+            <div class="temporada-box">
+                <h2>Temporada & Novedades</h2>
+                <p>Siempre hay algo nuevo por descubrir</p>
+                <div class="temporada-items">
+                    <div class="temporada-item">
+                        <h3>🎭 Espectáculos</h3>
+                        <p>Viernes y sábados por la noche</p>
+                    </div>
+                    <div class="temporada-item">
+                        <h3>🍓 Creaciones de Temporada</h3>
+                        <p>Sabores según la época del año</p>
+                    </div>
+                    <div class="temporada-item">
+                        <h3>🎉 Eventos Especiales</h3>
+                        <p>Síguenos en Instagram</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESEÑAS -->
+    <section class="section-bg-cream">
+        <div class="container">
+            <h2 class="section-title">Lo Que Dicen de Nosotros</h2>
+            <p class="section-description">
+                Nuestros clientes lo cuentan mejor que nosotros
+            </p>
+
+            <div class="reseñas-carousel">
+                <div class="reseña-card">
+                    <div class="reseña-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="reseña-text">
+                        Los batidos y creps están riquísimos!!!! Precio-Calidad inmejorable! Además, establecimiento muy acogedor y muy buen servicio.
+                    </p>
+                    <p class="reseña-author">— Nadia Coll</p>
+                </div>
+
+                <div class="reseña-card">
+                    <div class="reseña-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="reseña-text">
+                        Los dueños son super amables!! La comida está súper buena, el servicio un 10, he venido por primera vez con mi pareja y vamos a ser clientes habituales!
+                    </p>
+                    <p class="reseña-author">— Carolina García</p>
+                </div>
+
+                <div class="reseña-card">
+                    <div class="reseña-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="reseña-text">
+                        Lugar excepcional y precioso para merendar o tomar algo!
+                        Las crepes y los gofres están de infarto!! Además de sus batidos o si quieres algo más puedes tomarte un copazo :)
+                    </p>
+                    <p class="reseña-author">— Cristina V</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="ubicacion">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Crepería Essencia</h3>
+                <p>Donde los creps son arte y las noches son magia.</p>
+                <p style="margin-top: 2rem;"><strong>📍 Avenida Constitución, 9</strong></p>
+                <p>08740 Sant Andreu de la Barca</p>
+                <p>Barcelona</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Horarios</h3>
+                <p><strong>Todos los días</strong></p>
+                <p>🕐 17:00h - 21:00h</p>
+                <p style="margin-top: 1.5rem;"><strong>Viernes y Sábados</strong></p>
+                <p>🍸 Copeo hasta las 2:00h</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <p>Entérate de nuestras novedades, espectáculos y ofertas especiales</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/creperiaessencia/" target="_blank" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/Creperia.essencia" target="_blank" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d666.2620357436876!2d1.9675287!3d41.4489531!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a48fc0a2a5c401%3A0x26712ead08d8d265!2sCreper%C3%ADa%20Essencia!5e1!3m2!1ses!2ses!4v1769548192756!5m2!1ses!2ses"
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Crepería Essencia</p>
+        </div>
+    </footer>
+
+</body>
+</html>
